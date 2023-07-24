@@ -2,7 +2,12 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
    #sign in後にaboutページに遷移
-   def after_sign_in_path_for(resouce)
+   def after_sign_in_path_for(resource)
+     about_path
+   end
+
+   #sign out後にaboutページに遷移
+   def after_sign_out_path_for(resource)
      about_path
    end
 
