@@ -1,9 +1,9 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-   #sign in後にaboutページに遷移
+   #sign in後に投稿画像一覧に遷移
    def after_sign_in_path_for(resource)
-     about_path
+     post_images_path
    end
 
    #sign out後にaboutページに遷移
