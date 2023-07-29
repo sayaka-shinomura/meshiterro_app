@@ -6,6 +6,9 @@ class PostImage < ApplicationRecord
   #1:NのN側にあたるモデル
   belongs_to :user
 
+  #1:Nの1側にあたるモデル
+  has_many :post_comments, dependent: :destroy
+
   #画像が設定されていない場合
   def get_image
     unless image.attached?
