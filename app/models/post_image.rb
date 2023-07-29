@@ -8,6 +8,7 @@ class PostImage < ApplicationRecord
 
   #1:Nの1側にあたるモデル
   has_many :post_comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
   #画像が設定されていない場合
   def get_image
@@ -18,4 +19,8 @@ class PostImage < ApplicationRecord
     image
   end
 
+ def favorited_by?(user)
+   favorites.exists?(user_id: user.id)
+ end
+  
 end

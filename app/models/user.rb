@@ -7,6 +7,7 @@ class User < ApplicationRecord
  #1:Nの1側にあたるモデル
  has_many :post_images, dependent: :destroy
  has_many :post_comments, dependent: :destroy
+ has_many :favorites, dependent: :destroy
 
  #プロフィール画像を保存できるように設定
  has_one_attached :profile_image
