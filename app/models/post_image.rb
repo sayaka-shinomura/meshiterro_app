@@ -10,6 +10,12 @@ class PostImage < ApplicationRecord
   has_many :post_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
 
+  #shop_nameが存在しているかを確認するバリデーション
+  validates :shop_name, presence: true
+
+  #imageが存在しているかを確認するバリデーション
+  validates :image, presence: true
+
   #画像が設定されていない場合
   def get_image
     unless image.attached?
@@ -22,5 +28,5 @@ class PostImage < ApplicationRecord
  def favorited_by?(user)
    favorites.exists?(user_id: user.id)
  end
-  
+
 end

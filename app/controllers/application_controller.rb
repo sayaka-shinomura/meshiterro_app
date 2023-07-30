@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  #ログイン認証
+  before_action :authenticate_user!, except: [:top]
   before_action :configure_permitted_parameters, if: :devise_controller?
 
    #sign in後に投稿画像一覧に遷移
